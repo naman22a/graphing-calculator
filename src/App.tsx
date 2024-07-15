@@ -13,7 +13,7 @@ const CANVAS_WIDTH = window.innerWidth;
 function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.setup = () => p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
 
-    const step = 13;
+    const step = 20;
 
     let expression = '';
     let graph = false;
@@ -37,7 +37,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
         if (graph && expression) {
             // plot the graph for points at regular interval
             for (let i = 0; i < CANVAS_WIDTH; i += step) {
-                for (let j = 0; j < CANVAS_HEIGHT; j += step) {
+                for (let j = 0; j < CANVAS_WIDTH; j += step) {
                     const input = new Point(i, j);
 
                     const scope = { x: i, y: j };
