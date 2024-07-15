@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
 import { drawVector } from './lib/draw';
 import { MySketchProps } from './interfaces';
-import { BiReset } from 'react-icons/bi';
+import { useStore } from './store';
+import { Sidebar } from './components';
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
@@ -38,36 +39,11 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 }
 
 const App: React.FC = () => {
-    const [expression, setExpression] = useState('');
-    const [graph, setGraph] = useState(false);
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setGraph(true); // start drawing the graph
-    };
+    const { expression, graph } = useStore();
 
     return (
         <div className="container">
-            <aside className="sidebar">
-                <div className="sidebar-container">
-                    <h1>Function</h1>
-                    <form onSubmit={(e) => handleSubmit(e)}>
-                        <div>
-                            <input
-                                type="text"
-                                value={expression}
-                                onChange={(e) => setExpression(e.target.value)}
-                                autoComplete="off"
-                            />
-                            <button type="submit">Graph</button>
-                        </div>
-                        <span>Reset</span>
-                        <button type="reset" onClick={() => setExpression('')}>
-                            <BiReset />
-                        </button>
-                    </form>
-                </div>
-            </aside>
+            <Sidebar />
             <ReactP5Wrapper
                 sketch={sketch}
                 graph={graph}
