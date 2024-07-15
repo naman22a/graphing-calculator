@@ -8,7 +8,10 @@ const Sidebar: React.FC<Props> = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setGraph(true); // start drawing the graph
+
+        if (expression) {
+            setGraph(true); // start drawing the graph
+        }
     };
 
     return (

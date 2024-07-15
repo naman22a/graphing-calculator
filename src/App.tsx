@@ -16,7 +16,9 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
     const p2 = new Point(140, 150);
 
     let expression = '';
+    let graph = false;
     p5.updateWithProps = (props) => {
+        graph = props.graph;
         if (props.graph) {
             expression = props.expression;
         }
@@ -32,7 +34,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
         p5.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 
         p5.stroke('red');
-        if (expression) {
+        if (graph && expression) {
             drawVector(p5, p1, p2);
         }
     };
