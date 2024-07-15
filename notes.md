@@ -1,1 +1,3 @@
+-   fix performance
+    -   graphing consumes upto 3 GB of ram, browser window starts lagging 💀
 -   add prettier

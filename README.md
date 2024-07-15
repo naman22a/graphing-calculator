@@ -2,7 +2,7 @@
 
 > 4D Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
-## 🔗 See these links
+## 🌈 Inspiration
 
 -   https://youtu.be/NtoIXhUgqSk?si=7oIc9fOPtutyeP-2
 -   https://youtu.be/r1h3eNQ2YM0?si=KibQvlXe2b9ycDTk
