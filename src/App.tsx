@@ -3,6 +3,7 @@ import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
 import { drawVector } from './lib/draw';
 import { MySketchProps } from './interfaces';
+import { BiReset } from 'react-icons/bi';
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
@@ -51,13 +52,19 @@ const App: React.FC = () => {
                 <div className="sidebar-container">
                     <h1>Function</h1>
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <input
-                            type="text"
-                            value={expression}
-                            onChange={(e) => setExpression(e.target.value)}
-                            autoComplete="off"
-                        />
-                        <button>Graph</button>
+                        <div>
+                            <input
+                                type="text"
+                                value={expression}
+                                onChange={(e) => setExpression(e.target.value)}
+                                autoComplete="off"
+                            />
+                            <button type="submit">Graph</button>
+                        </div>
+                        <span>Reset</span>
+                        <button type="reset" onClick={() => setExpression('')}>
+                            <BiReset />
+                        </button>
                     </form>
                 </div>
             </aside>
