@@ -35,6 +35,15 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
         p5.stroke('red');
         if (graph && expression) {
+            // draw arrow for (0, 0) as it may be missed some times, due to view port width
+            const input = new Point(0, 0);
+            const complexOutput: math.Complex = math.evaluate(
+                expression.replace('z', '(x + i*y)'),
+                { x: 0, y: 0 }
+            );
+            const output = new Point(complexOutput.re, complexOutput.im);
+            drawVector(p5, input, output);
+
             // plot the graph for points at regular interval
             for (let i = -CANVAS_WIDTH / 2; i < CANVAS_WIDTH / 2; i += step) {
                 for (
