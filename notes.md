@@ -1,3 +1,3 @@
--   fix performance
-    -   graphing consumes upto 3 GB of ram, browser window starts lagging 💀
--   add prettier
+-   add domain coloring (to represent the length of the vector)
+-   make the graph drag and move, and generate graph when moved to new area
+-   imporve the ui
