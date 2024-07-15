@@ -5,6 +5,7 @@ import { drawVector } from './lib/draw';
 import { MySketchProps } from './interfaces';
 import { useStore } from './store';
 import { Sidebar } from './components';
+import * as math from 'mathjs';
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
@@ -12,8 +13,7 @@ const CANVAS_WIDTH = window.innerWidth;
 function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.setup = () => p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
 
-    const p1 = new Point(20, 30);
-    const p2 = new Point(140, 150);
+    const step = 13;
 
     let expression = '';
     let graph = false;
@@ -35,7 +35,24 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
         p5.stroke('red');
         if (graph && expression) {
-            drawVector(p5, p1, p2);
+            // plot the graph for points at regular interval
+            for (let i = 0; i < CANVAS_WIDTH; i += step) {
+                for (let j = 0; j < CANVAS_HEIGHT; j += step) {
+                    const input = new Point(i, j);
+
+                    const scope = { x: i, y: j };
+                    const complexOutput: math.Complex = math.evaluate(
+                        expression.replace('z', '(x + i*y)'),
+                        scope
+                    );
+                    const output = new Point(
+                        complexOutput.re,
+                        complexOutput.im
+                    );
+
+                    drawVector(p5, input, output);
+                }
+            }
         }
     };
 }
