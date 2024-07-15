@@ -1,11 +1,20 @@
 import { P5CanvasInstance } from '@p5-wrapper/react';
 import Point from './point';
+import { MySketchProps } from '../interfaces';
 
-export const drawLine = (p5: P5CanvasInstance, p1: Point, p2: Point) => {
+export const drawLine = (
+    p5: P5CanvasInstance<MySketchProps>,
+    p1: Point,
+    p2: Point
+) => {
     p5.line(p1.x, -p1.y, p2.x, -p2.y);
 };
 
-const drawArrowhead = (p5: P5CanvasInstance, base: Point, vec: Point) => {
+const drawArrowhead = (
+    p5: P5CanvasInstance<MySketchProps>,
+    base: Point,
+    vec: Point
+) => {
     const arrowSize = 7;
     const angle = Math.atan2(vec.y, vec.x);
 
@@ -20,7 +29,7 @@ const drawArrowhead = (p5: P5CanvasInstance, base: Point, vec: Point) => {
 };
 
 export const drawVector = (
-    p5: P5CanvasInstance,
+    p5: P5CanvasInstance<MySketchProps>,
     p1: Point,
     p2: Point
 ): void => {
