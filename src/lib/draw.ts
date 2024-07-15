@@ -33,13 +33,23 @@ export const drawVector = (
     p1: Point,
     p2: Point
 ): void => {
-    drawLine(p5, p1, p2);
+    // standardize vector length
+    const standardVectorLength = 10;
+    const theta = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+
+    const newP2 = new Point(
+        standardVectorLength * Math.cos(theta) + p1.x,
+        standardVectorLength * Math.sin(theta) + p1.y
+    );
+
+    // draw line
+    drawLine(p5, p1, newP2);
 
     // Vector direction
     const vector = {
-        x: p2.x - p1.x,
-        y: p2.y - p1.y
+        x: newP2.x - p1.x,
+        y: newP2.y - p1.y
     };
 
-    drawArrowhead(p5, p2, vector);
+    drawArrowhead(p5, newP2, vector);
 };

@@ -36,8 +36,12 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
         p5.stroke('red');
         if (graph && expression) {
             // plot the graph for points at regular interval
-            for (let i = 0; i < CANVAS_WIDTH; i += step) {
-                for (let j = 0; j < CANVAS_WIDTH; j += step) {
+            for (let i = -CANVAS_WIDTH / 2; i < CANVAS_WIDTH / 2; i += step) {
+                for (
+                    let j = -CANVAS_WIDTH / 2;
+                    j < CANVAS_WIDTH / 2;
+                    j += step
+                ) {
                     const input = new Point(i, j);
 
                     const scope = { x: i, y: j };
