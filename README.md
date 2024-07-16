@@ -4,13 +4,12 @@
 
 ![Vector Fields](./assets/vector-fields.png)
 
-## ⚙️ Tech Stack
+## ⚙️ Technologies
 
 -   ⏭️ Next Js
 -   🌈 p5.js
 -   🌏 Zustand
 -   🎨 Sass
--   🪣 Tailwindcss
 -   🧊 Typescript
 
 ## 🌈 Inspiration
