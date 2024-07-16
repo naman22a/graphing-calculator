@@ -29,6 +29,7 @@ const Sidebar: React.FC<Props> = () => {
             return;
         }
 
+        setError('');
         setGraph(true); // start drawing the graph
     };
 
@@ -45,10 +46,12 @@ const Sidebar: React.FC<Props> = () => {
                             setExpression(e.target.value);
                         }}
                         autoComplete="off"
+                        placeholder="For example sin(z)"
                     />
                     <button type="submit">Graph</button>
                 </form>
                 {error && <p className="error">{error}</p>}
+                <p>Give a function in terms of z.</p>
             </div>
         </aside>
     );
