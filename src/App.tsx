@@ -1,7 +1,7 @@
 import React from 'react';
 import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
-import { drawVector } from './lib/draw';
+import { domainColoring, drawVector } from './lib/draw';
 import { MySketchProps } from './interfaces';
 import { useStore } from './store';
 import { Sidebar } from './components';
@@ -13,7 +13,7 @@ const CANVAS_WIDTH = window.innerWidth;
 function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.setup = () => p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
 
-    const step = 20;
+    const step = 50;
 
     let expression = '';
     let graph = false;
@@ -33,7 +33,6 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
         p5.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 
-        p5.stroke('red');
         if (graph && expression) {
             // draw arrow for (0, 0) as it may be missed some times, due to view port width
             const input = new Point(0, 0);
@@ -63,6 +62,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
                         complexOutput.im
                     );
 
+                    p5.stroke(domainColoring(input, output));
                     drawVector(p5, input, output);
                 }
             }
