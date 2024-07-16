@@ -2,7 +2,7 @@ import React from 'react';
 import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
 import { domainColoring, drawVector } from './lib/draw';
-import { MySketchProps } from './interfaces';
+import { GraphingProps, MySketchProps } from './interfaces';
 import { useStore } from './store';
 import { Sidebar } from './components';
 import * as math from 'mathjs';
@@ -17,7 +17,8 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
     let expression = '';
     let graph = false;
-    p5.updateWithProps = (props) => {
+
+    p5.updateWithProps = (props: GraphingProps) => {
         graph = props.graph;
         if (props.graph) {
             expression = props.expression;
