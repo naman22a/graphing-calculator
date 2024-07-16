@@ -45,7 +45,7 @@ export const drawVector = (
     // draw line
     drawLine(p5, p1, newP2);
 
-    // Vector direction
+    // vector direction
     const vector = {
         x: newP2.x - p1.x,
         y: newP2.y - p1.y
@@ -55,21 +55,21 @@ export const drawVector = (
 };
 
 export function domainColoring(p1: Point, p2: Point): number[] {
-    // Calculate the complex number z = p2 - p1
+    // calculate the complex number z = p2 - p1
     const x = p2.x - p1.x;
     const y = p2.y - p1.y;
 
-    // Calculate the angle (phase) and magnitude
+    // calculate the angle (phase) and magnitude
     const angle = Math.atan2(y, x);
     const magnitude = Math.sqrt(x * x + y * y);
 
-    // Convert the angle to degrees and normalize it to [0, 1] range
+    // convert the angle to degrees and normalize it to [0, 1] range
     const hue = angle / (2 * Math.PI) + 0.5;
 
-    // Normalize magnitude
+    // normalize magnitude
     const brightness = 1 - Math.exp(-magnitude / 10);
 
-    // Convert HSV to RGB
+    // convert HSV to RGB
     const rgb = hsvToRgb(hue, 1, brightness);
 
     return [rgb.r, rgb.g, rgb.b];
