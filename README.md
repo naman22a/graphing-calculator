@@ -6,7 +6,7 @@
 
 ## ⚙️ Technologies
 
--   ⏭️ Next Js
+-   ⚛️ React Js
 -   🌈 p5.js
 -   🌏 Zustand
 -   🎨 Sass
