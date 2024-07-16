@@ -40,7 +40,10 @@ const Sidebar: React.FC<Props> = () => {
                     <input
                         type="text"
                         value={expression}
-                        onChange={(e) => setExpression(e.target.value)}
+                        onChange={(e) => {
+                            setGraph(false);
+                            setExpression(e.target.value);
+                        }}
                         autoComplete="off"
                     />
                     <button type="submit">Graph</button>
