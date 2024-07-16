@@ -1,6 +1,6 @@
 # 📊 Graphing Calculator
 
-> 4D Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
+> Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
 ![Vector Fields](./assets/vector-fields.png)
 
