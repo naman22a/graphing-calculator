@@ -2,6 +2,17 @@
 
 > 4D Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
+![Vector Fields](./assets/vector-fields.png)
+
+## ⚙️ Tech Stack
+
+-   ⏭️ Next Js
+-   🌈 p5.js
+-   🌏 Zustand
+-   🎨 Sass
+-   🪣 Tailwindcss
+-   🧊 Typescript
+
 ## 🌈 Inspiration
 
 -   https://youtu.be/NtoIXhUgqSk?si=7oIc9fOPtutyeP-2
