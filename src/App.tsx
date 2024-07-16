@@ -42,6 +42,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
                 { x: 0, y: 0 }
             );
             const output = new Point(complexOutput.re, complexOutput.im);
+            p5.stroke(domainColoring(input, output));
             drawVector(p5, input, output);
 
             // plot the graph for points at regular interval
