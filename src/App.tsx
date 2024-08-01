@@ -30,6 +30,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.draw = () => {
         p5.background(40);
 
+        p5.strokeWeight(3);
         p5.stroke(255);
         p5.line(CANVAS_WIDTH / 2, 0, CANVAS_WIDTH / 2, CANVAS_HEIGHT);
         p5.line(0, CANVAS_HEIGHT / 2, CANVAS_WIDTH, CANVAS_HEIGHT / 2);
