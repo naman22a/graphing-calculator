@@ -31,10 +31,9 @@ const drawArrowhead = (
 export const drawVector = (
     p5: P5CanvasInstance<MySketchProps>,
     p1: Point,
-    p2: Point
+    p2: Point,
+    standardVectorLength: number // make length of all vectors equal
 ): void => {
-    // standardize vector length
-    const standardVectorLength = 20;
     const theta = Math.atan2(p2.y - p1.y, p2.x - p1.x);
 
     const newP2 = new Point(

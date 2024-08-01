@@ -77,6 +77,33 @@ body {
                 margin-top: 8px;
                 font-size: 12px;
             }
+
+            .input-range {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+
+                > label {
+                    margin-bottom: 10px;
+                }
+
+                // TODO: change input range's color to teal
+            }
+
+            button[type='reset'] {
+                margin-top: 20px;
+                border-radius: 2px;
+
+                color: white;
+                border: none;
+                outline: none;
+                cursor: pointer;
+
+                padding: 2px 12px;
+                background-color: #0064e6;
+                font-size: 12px;
+                font-weight: 600;
+            }
         }
     }
 }
