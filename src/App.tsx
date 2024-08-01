@@ -13,15 +13,17 @@ const CANVAS_WIDTH = window.innerWidth;
 function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.setup = () => p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
 
-    const step = 50;
-
     let expression = '';
     let graph = false;
+    let step: number;
+    let vectorLength: number;
 
     p5.updateWithProps = (props: GraphingProps) => {
         graph = props.graph;
         if (props.graph) {
             expression = props.expression;
+            step = props.step;
+            vectorLength = props.vectorLength;
         }
     };
 
@@ -43,7 +45,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
             );
             const output = new Point(complexOutput.re, complexOutput.im);
             p5.stroke(domainColoring(input, output));
-            drawVector(p5, input, output);
+            drawVector(p5, input, output, vectorLength);
 
             // plot the graph for points at regular interval
             for (
@@ -69,7 +71,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
                     );
 
                     p5.stroke(domainColoring(input, output));
-                    drawVector(p5, input, output);
+                    drawVector(p5, input, output, vectorLength);
                 }
             }
         }
@@ -77,7 +79,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 }
 
 const App: React.FC = () => {
-    const { expression, graph } = useStore();
+    const { expression, graph, step, vectorLength } = useStore();
 
     return (
         <div className="container">
@@ -86,6 +88,8 @@ const App: React.FC = () => {
                 sketch={sketch}
                 graph={graph}
                 expression={expression}
+                step={step}
+                vectorLength={vectorLength}
             />
         </div>
     );

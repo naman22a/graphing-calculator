@@ -1,2 +1,8 @@
 -   make the graph drag and move, and generate graph when moved to new area
 -   imporve the ui
+-   show value of coordinates(4) on hover on arrow
+-   Make particle animation
+    -   consider it as a velocity field
+    -   convert it into stream a plot
+    -   instead of plotting the function, plot it's conjugate (Polya vector field)
+    -   Polya vector field -> physical flow -> Inviscid, Incompressible, Irrotational flow
