@@ -1,5 +1,6 @@
 -   make the graph drag and move, and generate graph when moved to new area
 -   imporve the ui
+    -   glass morphism effect on sidebar container
 -   show value of coordinates(4) on hover on arrow
 -   Make particle animation
     -   consider it as a velocity field

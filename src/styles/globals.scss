@@ -87,7 +87,9 @@ body {
                     margin-bottom: 10px;
                 }
 
-                // TODO: change input range's color to teal
+                input[type='range'] {
+                    accent-color: #35a29f;
+                }
             }
 
             button[type='reset'] {
