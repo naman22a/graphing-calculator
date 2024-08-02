@@ -75,12 +75,9 @@ const Sidebar: React.FC<Props> = () => {
                     <label>Step</label>
                     <input
                         type="range"
-                        id="range"
-                        name="range"
                         min="25"
                         max="175"
                         step="25"
-                        color="#35a29f"
                         value={step}
                         onChange={handleStepChange}
                     />
@@ -90,12 +87,9 @@ const Sidebar: React.FC<Props> = () => {
                     <label>Vector Length</label>
                     <input
                         type="range"
-                        id="range"
-                        name="range"
                         min="10"
                         max="50"
                         step="5"
-                        color="#35a29f"
                         value={vectorLength}
                         onChange={handleVectorLengthChange}
                     />
