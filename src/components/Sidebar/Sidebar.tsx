@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useStore } from '../../store';
 import * as math from 'mathjs';
+import { SlGraph } from 'react-icons/sl';
+import { BiReset } from 'react-icons/bi';
 
 interface Props {}
 
@@ -67,7 +69,10 @@ const Sidebar: React.FC<Props> = () => {
                         autoComplete="off"
                         placeholder="For example sin(z)"
                     />
-                    <button type="submit">Graph</button>
+                    <button type="submit">
+                        <SlGraph size={20} />
+                        Graph
+                    </button>
                 </form>
                 {error && <p className="error">{error}</p>}
                 <p>Give a function in terms of z.</p>
@@ -97,6 +102,7 @@ const Sidebar: React.FC<Props> = () => {
                 </div>
 
                 <button type="reset" onClick={() => resetParameters()}>
+                    <BiReset size={15} />
                     Reset
                 </button>
                 <p>Reset Step and Vector Length parameters</p>
