@@ -41,7 +41,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
             // draw arrow for (0, 0) as it may be missed some times, due to view port width
             const input = new Point(0, 0);
             const complexOutput: math.Complex = math.evaluate(
-                expression.replace('z', '(x + i*y)'),
+                expression.replaceAll('z', '(x - i*y)'),
                 { x: 0, y: 0 }
             );
             const output = new Point(complexOutput.re, complexOutput.im);
@@ -63,7 +63,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
                     const scope = { x: i, y: j };
                     const complexOutput: math.Complex = math.evaluate(
-                        expression.replace('z', '(x - i*y)'),
+                        expression.replaceAll('z', '(x - i*y)'),
                         scope
                     );
                     const output = new Point(
