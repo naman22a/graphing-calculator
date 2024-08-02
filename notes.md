@@ -3,5 +3,3 @@
 -   Make particle animation
     -   consider it as a velocity field
     -   convert it into stream a plot
-    -   instead of plotting the function, plot it's conjugate (Polya vector field)
-    -   Polya vector field -> physical flow -> Inviscid, Incompressible, Irrotational flow

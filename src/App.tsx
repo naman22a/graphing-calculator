@@ -63,7 +63,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
                     const scope = { x: i, y: j };
                     const complexOutput: math.Complex = math.evaluate(
-                        expression.replace('z', '(x + i*y)'),
+                        expression.replace('z', '(x - i*y)'),
                         scope
                     );
                     const output = new Point(

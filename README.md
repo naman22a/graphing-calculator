@@ -4,6 +4,16 @@
 
 ![Vector Fields](./assets/vector-fields.png)
 
+## 🍁 Features
+
+-   Graphing Calculator for Complex valued functions
+-   Vector Fields are used to represent input complex number pointing output complex number
+-   To avoid clutter, we make all vector lengths equal
+-   To represent the missing information about the length we use domain coloring
+-   In Polya vector field we plot it's conjugate instead of the given function
+-   Polya vector field represents Physical Flow
+-   It represents a is Inviscid, Incompressible, Irrotational flow
+
 ## ⚙️ Technologies
 
 -   ⚛️ React Js
