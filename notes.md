@@ -1,5 +1,1 @@
 -   make the graph drag and move, and generate graph when moved to new area
--   show value of coordinates(4) on hover on arrow
--   Make particle animation
-    -   consider it as a velocity field
-    -   convert it into stream a plot

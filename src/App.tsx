@@ -37,15 +37,11 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
     let expression = '';
     let graph = false;
-    let step: number;
-    let vectorLength: number;
 
     p5.updateWithProps = (props: GraphingProps) => {
         graph = props.graph;
         if (props.graph) {
             expression = props.expression;
-            step = props.step;
-            vectorLength = props.vectorLength;
         }
     };
 
@@ -55,6 +51,10 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
         p5.line(0, CANVAS_HEIGHT / 2, CANVAS_WIDTH, CANVAS_HEIGHT / 2);
 
         p5.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+
+        if (graph == false) {
+            p5.background(40);
+        }
 
         if (graph && expression) {
             for (let i = 0; i < points.length; i++) {
@@ -73,6 +73,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
                 );
 
                 const mult = 2.5;
+                const vectorLength = 20;
                 const newP2 = new Point(
                     (vectorLength * Math.cos(theta) + input.x) * mult,
                     (vectorLength * Math.sin(theta) + input.y) * mult
@@ -87,7 +88,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 }
 
 const App: React.FC = () => {
-    const { expression, graph, step, vectorLength } = useStore();
+    const { expression, graph } = useStore();
 
     return (
         <div className="container">
@@ -96,8 +97,6 @@ const App: React.FC = () => {
                 sketch={sketch}
                 graph={graph}
                 expression={expression}
-                step={step}
-                vectorLength={vectorLength}
             />
         </div>
     );
