@@ -2,7 +2,7 @@
 
 > Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
-![Vector Fields](./assets/vector-fields.png)
+![Vector Fields](./assets/fluid-flow.png)
 
 ## 🍁 Features
 
