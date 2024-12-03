@@ -20,10 +20,10 @@ const DEFAULT_STEP_VALUE = 50;
 const DEFAULT_VECTOR_LENGTH = 20;
 
 export const useStore = create<GlobalState>((set) => ({
-    expression: '',
+    expression: 'z^3',
     setExpression: (expression) => set(() => ({ expression })),
 
-    graph: false,
+    graph: true,
     setGraph: (graph) => set(() => ({ graph })),
 
     step: DEFAULT_STEP_VALUE,

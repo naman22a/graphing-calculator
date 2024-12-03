@@ -1,17 +1,39 @@
 import React from 'react';
 import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
-import { domainColoring, drawVector } from './lib/draw';
+import { domainColoring } from './lib/draw';
 import { GraphingProps, MySketchProps } from './interfaces';
 import { useStore } from './store';
 import { Sidebar } from './components';
 import * as math from 'mathjs';
+import { Vector } from 'p5';
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
 
 function sketch(p5: P5CanvasInstance<MySketchProps>) {
-    p5.setup = () => p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
+    const points: Vector[] = [];
+
+    p5.setup = () => {
+        p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
+        p5.pixelDensity(2);
+        p5.angleMode(p5.DEGREES);
+        p5.noiseDetail(1, 0);
+
+        const density = 30;
+
+        for (let x = -p5.width; x <= p5.width; x += p5.width / density) {
+            for (let y = -p5.height; y <= p5.height; y += p5.height / density) {
+                const p = p5.createVector(
+                    x + p5.random(-10, 10),
+                    y + p5.random(-10, 10)
+                );
+                points.push(p);
+            }
+        }
+
+        p5.background(40);
+    };
 
     let expression = '';
     let graph = false;
@@ -28,9 +50,6 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
     };
 
     p5.draw = () => {
-        p5.background(40);
-
-        p5.strokeWeight(3);
         p5.stroke(255);
         p5.line(CANVAS_WIDTH / 2, 0, CANVAS_WIDTH / 2, CANVAS_HEIGHT);
         p5.line(0, CANVAS_HEIGHT / 2, CANVAS_WIDTH, CANVAS_HEIGHT / 2);
@@ -38,42 +57,30 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
         p5.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 
         if (graph && expression) {
-            // draw arrow for (0, 0) as it may be missed some times, due to view port width
-            const input = new Point(0, 0);
-            const complexOutput: math.Complex = math.evaluate(
-                expression.replaceAll('z', '(x - i*y)'),
-                { x: 0, y: 0 }
-            );
-            const output = new Point(complexOutput.re, complexOutput.im);
-            p5.stroke(domainColoring(input, output));
-            drawVector(p5, input, output, vectorLength);
+            for (let i = 0; i < points.length; i++) {
+                const point = points[i];
+                const input = { x: point.x, y: point.y };
 
-            // plot the graph for points at regular interval
-            for (
-                let i = -Math.max(CANVAS_WIDTH, CANVAS_HEIGHT) / 2;
-                i < Math.max(CANVAS_WIDTH, CANVAS_HEIGHT) / 2;
-                i += step
-            ) {
-                for (
-                    let j = -Math.max(CANVAS_WIDTH, CANVAS_HEIGHT) / 2;
-                    j < Math.max(CANVAS_WIDTH, CANVAS_HEIGHT) / 2;
-                    j += step
-                ) {
-                    const input = new Point(i, j);
+                const complexOutput: math.Complex = math.evaluate(
+                    expression.replaceAll('z', '(x - i*y)'),
+                    input
+                );
+                const output = new Point(complexOutput.re, complexOutput.im);
 
-                    const scope = { x: i, y: j };
-                    const complexOutput: math.Complex = math.evaluate(
-                        expression.replaceAll('z', '(x - i*y)'),
-                        scope
-                    );
-                    const output = new Point(
-                        complexOutput.re,
-                        complexOutput.im
-                    );
+                const theta = Math.atan2(
+                    output.y - input.y,
+                    output.x - input.x
+                );
 
-                    p5.stroke(domainColoring(input, output));
-                    drawVector(p5, input, output, vectorLength);
-                }
+                const mult = 2.5;
+                const newP2 = new Point(
+                    (vectorLength * Math.cos(theta) + input.x) * mult,
+                    (vectorLength * Math.sin(theta) + input.y) * mult
+                );
+
+                point.add(p5.createVector(p5.cos(theta), p5.sin(theta)));
+                p5.stroke(domainColoring(input, output));
+                p5.point(newP2.x, newP2.y);
             }
         }
     };
