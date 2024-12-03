@@ -2,32 +2,12 @@ import React, { useState } from 'react';
 import { useStore } from '../../store';
 import * as math from 'mathjs';
 import { SlGraph } from 'react-icons/sl';
-import { BiReset } from 'react-icons/bi';
 
 interface Props {}
 
 const Sidebar: React.FC<Props> = () => {
-    const {
-        expression,
-        setExpression,
-        setGraph,
-        step,
-        setStep,
-        vectorLength,
-        setVectorLength,
-        resetParameters
-    } = useStore();
+    const { expression, setExpression, setGraph } = useStore();
     const [error, setError] = useState('');
-
-    const handleStepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setStep(Number(e.target.value));
-    };
-
-    const handleVectorLengthChange = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setVectorLength(Number(e.target.value));
-    };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -76,36 +56,6 @@ const Sidebar: React.FC<Props> = () => {
                 </form>
                 {error && <p className="error">{error}</p>}
                 <p>Give a function in terms of z.</p>
-                <div className="input-range">
-                    <label>Step</label>
-                    <input
-                        type="range"
-                        min="25"
-                        max="175"
-                        step="25"
-                        value={step}
-                        onChange={handleStepChange}
-                    />
-                    {step}
-                </div>
-                <div className="input-range">
-                    <label>Vector Length</label>
-                    <input
-                        type="range"
-                        min="10"
-                        max="50"
-                        step="5"
-                        value={vectorLength}
-                        onChange={handleVectorLengthChange}
-                    />
-                    {vectorLength}
-                </div>
-
-                <button type="reset" onClick={() => resetParameters()}>
-                    <BiReset size={15} />
-                    Reset
-                </button>
-                <p>Reset Step and Vector Length parameters</p>
             </div>
         </aside>
     );
