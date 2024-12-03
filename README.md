@@ -2,6 +2,8 @@
 
 > Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
+The website is live at [https://vector-fields.namanarora.xyz](https://vector-fields.namanarora.xyz)
+
 ![Vector Fields](./assets/flow-field.png)
 
 ## 🍁 Features
