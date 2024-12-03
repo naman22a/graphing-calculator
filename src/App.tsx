@@ -17,17 +17,13 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
     p5.setup = () => {
         p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.P2D);
         p5.pixelDensity(2);
-        p5.angleMode(p5.DEGREES);
         p5.noiseDetail(1, 0);
 
-        const density = 30;
+        const density = 50;
 
         for (let x = -p5.width; x <= p5.width; x += p5.width / density) {
             for (let y = -p5.height; y <= p5.height; y += p5.height / density) {
-                const p = p5.createVector(
-                    x + p5.random(-10, 10),
-                    y + p5.random(-10, 10)
-                );
+                const p = p5.createVector(x, y);
                 points.push(p);
             }
         }
