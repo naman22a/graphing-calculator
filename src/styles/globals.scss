@@ -73,39 +73,6 @@ body {
                 margin-top: 8px;
                 font-size: 12px;
             }
-
-            .input-range {
-                margin-top: 20px;
-                display: flex;
-                flex-direction: column;
-
-                > label {
-                    margin-bottom: 10px;
-                }
-
-                input[type='range'] {
-                    accent-color: #35a29f;
-                }
-            }
-
-            button[type='reset'] {
-                margin-top: 20px;
-                border-radius: 2px;
-
-                color: white;
-                border: none;
-                outline: none;
-                cursor: pointer;
-
-                padding: 5px 12px;
-                background-color: #35a29f;
-                font-size: 12px;
-                font-weight: 600;
-
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
         }
     }
 }

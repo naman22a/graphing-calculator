@@ -47,7 +47,7 @@ const Sidebar: React.FC<Props> = () => {
                             setExpression(e.target.value);
                         }}
                         autoComplete="off"
-                        placeholder="For example sin(z)"
+                        placeholder="For example z^3"
                     />
                     <button type="submit">
                         <SlGraph size={20} />
