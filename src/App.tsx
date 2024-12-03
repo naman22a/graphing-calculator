@@ -1,7 +1,7 @@
 import React from 'react';
 import { P5CanvasInstance, ReactP5Wrapper } from '@p5-wrapper/react';
 import { Point } from './lib';
-import { domainColoring } from './lib/draw';
+import { domainColoring } from './lib/utils';
 import { GraphingProps, MySketchProps } from './interfaces';
 import { useStore } from './store';
 import { Sidebar } from './components';
@@ -23,7 +23,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
 
         for (let x = -p5.width; x <= p5.width; x += p5.width / density) {
             for (let y = -p5.height; y <= p5.height; y += p5.height / density) {
-                const p = p5.createVector(x, y);
+                const p = p5.createVector(x, -y);
                 points.push(p);
             }
         }
@@ -42,6 +42,7 @@ function sketch(p5: P5CanvasInstance<MySketchProps>) {
     };
 
     p5.draw = () => {
+        p5.strokeWeight(3);
         p5.stroke(255);
         p5.line(CANVAS_WIDTH / 2, 0, CANVAS_WIDTH / 2, CANVAS_HEIGHT);
         p5.line(0, CANVAS_HEIGHT / 2, CANVAS_WIDTH, CANVAS_HEIGHT / 2);
