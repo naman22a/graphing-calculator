@@ -1,1 +1,0 @@
--   make the graph drag and move, and generate graph when moved to new area
