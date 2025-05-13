@@ -14,16 +14,13 @@ const Sidebar: React.FC<Props> = () => {
 
         // validate expression
         if (!expression) {
+            setError('Expression cannot be empty');
             return;
         }
 
-        const scope = {
-            z: 1 // is defined
-        };
-
         try {
             // validate expression
-            math.evaluate(expression, scope);
+            math.evaluate(expression, { z: 0 });
         } catch (error) {
             setError('Invalid input');
             console.error(error);
@@ -45,6 +42,7 @@ const Sidebar: React.FC<Props> = () => {
                         onChange={(e) => {
                             setGraph(false);
                             setExpression(e.target.value);
+                            setError('');
                         }}
                         autoComplete="off"
                         placeholder="For example z^3"
