@@ -3,9 +3,7 @@ import { useStore } from '../../store';
 import * as math from 'mathjs';
 import { SlGraph } from 'react-icons/sl';
 
-interface Props {}
-
-const Sidebar: React.FC<Props> = () => {
+const Sidebar: React.FC = () => {
     const { expression, setExpression, setGraph } = useStore();
     const [error, setError] = useState('');
 
