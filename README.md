@@ -29,6 +29,10 @@ The website is live at [https://vector-fields.namanarora.xyz](https://vector-fie
 -   https://youtu.be/NtoIXhUgqSk?si=7oIc9fOPtutyeP-2
 -   https://youtu.be/r1h3eNQ2YM0?si=KibQvlXe2b9ycDTk
 
+## 🤝 Contributions
+
+Contributions, issues, and suggestions are welcome! Feel free to fork the repository and submit pull requests.
+
 ## 📫 Stay in touch
 
 -   Author - [Naman Arora](https://namanarora.xyz)
