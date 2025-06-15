@@ -29,6 +29,22 @@ The website is live at [https://vector-fields.namanarora.xyz](https://vector-fie
 -   https://youtu.be/NtoIXhUgqSk?si=7oIc9fOPtutyeP-2
 -   https://youtu.be/r1h3eNQ2YM0?si=KibQvlXe2b9ycDTk
 
+## 🚶🏻‍♂️ Getting started and 🏃🏻‍♂️ Running the app
+
+```bash
+# 1. Clone the repository
+$ git clone https://github.com/naman22a/graphing-calculator
+
+# 2. Enter your newly-cloned folder.
+$ cd graphing-calculator
+
+# 3. Install client side dependencies
+$ yarn install
+
+# 4. Start the server
+$ yarn dev
+```
+
 ## 🤝 Contributions
 
 Contributions, issues, and suggestions are welcome! Feel free to fork the repository and submit pull requests.
