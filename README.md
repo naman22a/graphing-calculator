@@ -2,6 +2,11 @@
 
 > Graphing and Analysis Tool for Complex Functions using ↗️ Vector Fields
 
+Graphing Calculator for Complex Functions visualizes complex functions using vector fields with equal-length arrows and domain coloring for magnitude. It includes the Polya vector field, showing the conjugate to represent ideal fluid flow.
+
+
+## 🌐 Live Demo
+
 The website is live at [https://vector-fields.namanarora.xyz](https://vector-fields.namanarora.xyz)
 
 ![Vector Fields](./assets/flow-field.png)
