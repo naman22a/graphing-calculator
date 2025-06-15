@@ -31,8 +31,8 @@ The website is live at [https://vector-fields.namanarora.xyz](https://vector-fie
 
 ## 📫 Stay in touch
 
--   Author - [Naman Arora](https://namanarora.vercel.app)
--   Twitter - [@namanarora1022](https://twitter.com/namanarora1022)
+-   Author - [Naman Arora](https://namanarora.xyz)
+-   Twitter - [@naman_22a](https://twitter.com/naman_22a)
 
 ## 🗒️ License
 
